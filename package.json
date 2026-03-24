@@ -1,0 +1,71 @@
+{
+  "name": "student-blogging-frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "build:vite": "vite build",
+    "typecheck": "tsc -b",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "preview": "vite preview",
+    "prepare": "husky",
+    "docker:dev:up": "docker compose -p sb-frontend-dev -f compose.dev.yml up -d",
+    "docker:dev:build": "docker compose -p sb-frontend-dev -f compose.dev.yml up -d --build",
+    "docker:dev:down": "docker compose -p sb-frontend-dev -f compose.dev.yml down",
+    "docker:dev:logs": "docker compose -p sb-frontend-dev -f compose.dev.yml logs -f",
+    "docker:dev:ps": "docker compose -p sb-frontend-dev -f compose.dev.yml ps",
+    "docker:dev:restart": "docker compose -p sb-frontend-dev -f compose.dev.yml restart",
+    "docker:prod:up": "docker compose -p sb-frontend-prod -f compose.yml up -d",
+    "docker:prod:build": "docker compose -p sb-frontend-prod -f compose.yml up -d --build",
+    "docker:prod:down": "docker compose -p sb-frontend-prod -f compose.yml down",
+    "docker:prod:logs": "docker compose -p sb-frontend-prod -f compose.yml logs -f",
+    "docker:prod:ps": "docker compose -p sb-frontend-prod -f compose.yml ps",
+    "docker:prod:restart": "docker compose -p sb-frontend-prod -f compose.yml restart"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.2.2",
+    "@tanstack/react-query": "^5.90.2",
+    "axios": "^1.12.2",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-hook-form": "^7.72.0",
+    "react-router-dom": "^6.30.1",
+    "styled-components": "^6.1.19",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@vitejs/plugin-react": "^5.1.0",
+    "babel-plugin-styled-components": "^2.1.4",
+    "eslint": "^9.39.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.4.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.3",
+    "prettier": "^3.6.2",
+    "typescript": "~5.9.3",
+    "typescript-eslint": "^8.46.1",
+    "vite": "^7.1.12"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix --max-warnings 0",
+      "prettier --write"
+    ],
+    "*.{json,css,md}": [
+      "prettier --write"
+    ]
+  }
+}
